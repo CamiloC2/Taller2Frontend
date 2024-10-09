@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-sm-12 text-right">
+            <a class="btn btn-primary" [routerLink]="['/mascotas/agregar']">Nueva Mascota</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let mascota of mascotas | async">
+            <div class="card mb-4 shadow-sm">
+                <img src="{{ mascota.imagen_url }}" class="card-img-top" alt="Imagen de {{ mascota.nombre }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ mascota.nombre }}</h5>
+                    <p class="card-text"><strong>Edad:</strong> {{ mascota.edad }}</p>
+                    <p class="card-text"><strong>Tamaño:</strong> {{ mascota.tamano }}</p>
+                    <p class="card-text"><strong>Info:</strong> {{ mascota.info }}</p>
+                    <p class="card-text"><strong>Estado:</strong> {{ mascota.estado_adopcion ? 'Adoptado' : 'Disponible' }}</p>
+                    <div class="d-flex justify-content-between">
+                        <a class="btn btn-info btn-sm" [routerLink]="['/mascotas/editar/', mascota.id]">Editar</a>
+                        <a class="btn btn-danger btn-sm" (click)="borrarMascota(mascota.id)">Borrar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

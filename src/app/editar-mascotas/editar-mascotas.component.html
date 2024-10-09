@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col-sm-12">
+    <form (ngSubmit)="onSubmit()" #mascotaForm="ngForm">
+      <!-- Campo para el nombre de la mascota -->
+      <fieldset class="form-group">
+        <div class="col-sm-12">
+          <label class="control-label" for="nombre">Nombre</label>
+          <input type="text" class="form-control" required [(ngModel)]="mascota.nombre" name="nombre">
+        </div>
+      </fieldset>
+
+      <!-- Campo para la edad de la mascota -->
+      <fieldset class="form-group">
+        <div class="col-sm-12">
+          <label class="control-label" for="edad">Edad</label>
+          <input type="number" class="form-control" required [(ngModel)]="mascota.edad" name="edad">
+        </div>
+      </fieldset>
+
+      <!-- Campo para el tamaño de la mascota -->
+      <fieldset class="form-group">
+        <div class="col-sm-12">
+          <label class="control-label" for="tamano">Tamaño</label>
+          <input type="text" class="form-control" required [(ngModel)]="mascota.tamano" name="tamano">
+        </div>
+      </fieldset>
+
+      <!-- Campo para la información adicional de la mascota -->
+      <fieldset class="form-group">
+        <div class="col-sm-12">
+          <label class="control-label" for="info">Información adicional</label>
+          <textarea class="form-control" rows="3" required [(ngModel)]="mascota.info" name="info"></textarea>
+        </div>
+      </fieldset>
+
+      <!-- Campo para el estado de adopción de la mascota -->
+      <fieldset class="form-group">
+        <div class="col-sm-12">
+          <label class="control-label" for="adopcion">Estado de Adopción</label>
+          <select class="form-control" required [(ngModel)]="mascota.estado_adopcion" name="adopcion">
+            <option [ngValue]="true">Adoptado</option>
+            <option [ngValue]="false">Disponible</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <!-- Campo para la URL de la imagen de la mascota -->
+      <fieldset class="form-group">
+        <div class="col-sm-12">
+          <label class="control-label" for="imagen_url">URL de la Imagen</label>
+          <input type="url" class="form-control" [(ngModel)]="mascota.imagen_url" name="imagen_url">
+        </div>
+      </fieldset>
+
+      <!-- Botón de envío -->
+      <fieldset class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-primary" [disabled]="!mascotaForm.form.valid">Enviar</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
